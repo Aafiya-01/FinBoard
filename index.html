@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBoard - User Authentication</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/login.css">
+</head>
+<body class="bg-slate-900 text-white antialiased">
+
+    <!-- Notification Element -->
+    <div id="notification" class="hidden fixed top-5 right-5 z-50 p-4 rounded-md text-sm transition-transform duration-300">
+        <p id="notification-message"></p>
+    </div>
+
+    <!-- Main Authentication UI -->
+    <div id="auth-container" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-4xl min-h-[600px] bg-slate-800/50 rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden">
+            
+            <!-- Branding/Info Panel -->
+            <div class="w-full md:w-1/2 bg-slate-900 p-8 md:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+                <div class="flex items-center gap-3 mb-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    <h1 class="text-3xl font-bold">FinBoard</h1>
+                </div>
+                <p class="text-slate-300 text-lg mb-2">Welcome to your Financial Dashboard.</p>
+                <p class="text-slate-400">Analyze key metrics, track stock performance, and make informed investment decisions with confidence.</p>
+            </div>
+
+            <!-- Form Panel -->
+            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
+                
+                <!-- Sign In View -->
+                <div id="sign-in-view">
+                    <h2 class="text-2xl font-semibold mb-6">Sign In</h2>
+                    <form id="sign-in-form">
+                        <div class="mb-4">
+                            <label for="signin-email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                            <input type="email" id="signin-email" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="signin-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
+                            <input type="password" id="signin-password" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="••••••••">
+                        </div>
+                        <button type="submit" id="signin-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
+                            Sign In
+                        </button>
+                    </form>
+                    <div class="mt-6 text-center text-slate-400">
+                        <p>Don't have an account? <button id="show-signup" class="font-semibold text-blue-400 hover:underline">Sign Up</button></p>
+                    </div>
+                </div>
+                
+                <!-- Sign Up View (hidden by default) -->
+                <div id="sign-up-view" class="hidden">
+                    <h2 class="text-2xl font-semibold mb-6">Create Account</h2>
+                    <form id="sign-up-form">
+                        <div class="mb-4">
+                            <label for="signup-name" class="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
+                            <input type="text" id="signup-name" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe">
+                        </div>
+                        <div class="mb-4">
+                            <label for="signup-email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                            <input type="email" id="signup-email" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="signup-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
+                            <input type="password" id="signup-password" required minlength="6" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Minimum 6 characters">
+                        </div>
+                        <button type="submit" id="signup-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
+                            Sign Up
+                        </button>
+                    </form>
+                    <div class="mt-6 text-center text-slate-400">
+                        <p>Already have an account? <button id="show-signin" class="font-semibold text-blue-400 hover:underline">Sign In</button></p>
+                    </div>
+                </div>
+
+                <!-- Or Separator -->
+                 <div class="my-6 flex items-center">
+                    <div class="flex-grow border-t border-slate-600"></div>
+                    <span class="flex-shrink mx-4 text-slate-400 text-sm">OR</span>
+                    <div class="flex-grow border-t border-slate-600"></div>
+                </div>
+
+                <!-- Google Sign-In -->
+                <button id="google-signin-button" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"></path><path fill="#FF3D00" d="M6.306 14.691c-1.229 2.503-1.936 5.34-1.936 8.309s.707 5.806 1.936 8.309l7.707-6.044C13.52 24.512 13.44 24.258 13.44 24s.08- .512 .166-1.044l-7.707-6.044z"></path><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-4.825C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-7.707 6.044C8.062 39.422 15.522 44 24 44z"></path><path fill="#1976D2" d="M43.611 20.083L43.595 20H24v8h11.303a12.034 12.034 0 0 1-5.006 7.822l6.19 4.825C41.352 36.319 44 30.562 44 24c0-1.341-.138-2.65-.389-3.917z"></path></svg>
+                    Continue with Google
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- App View (after login) -->
+    <div id="app-view" class="hidden min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-4">Welcome to FinBoard!</h1>
+            <p class="text-slate-300 mb-2">You are logged in as:</p>
+            <p id="user-email" class="font-mono bg-slate-800 p-2 rounded-md mb-6"></p>
+            <button id="logout-button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-md transition duration-300">
+                Log Out
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK & Custom Script -->
+    <script type="module" src="/assets/js/login.js"></script>
+
+</body>
+</html>
