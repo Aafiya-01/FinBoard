@@ -13,8 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/login.css">
+    <!-- Font Awesome for icons (Needed for both pages) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
 </head>
 <body class="bg-slate-900 text-white antialiased">
 
@@ -30,7 +35,7 @@
             <!-- Branding/Info Panel -->
             <div class="w-full md:w-1/2 bg-slate-900 p-8 md:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
                 <div class="flex items-center gap-3 mb-4">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                     <h1 class="text-3xl font-bold">FinBoard</h1>
                 </div>
                 <p class="text-slate-300 text-lg mb-2">Welcome to your Financial Dashboard.</p>
@@ -46,18 +51,18 @@
                     <form id="sign-in-form">
                         <div class="mb-4">
                             <label for="signin-email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                            <input type="email" id="signin-email" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com">
+                            <input type="email" id="signin-email" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="you@example.com">
                         </div>
                         <div class="mb-6">
                             <label for="signin-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
-                            <input type="password" id="signin-password" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="••••••••">
+                            <input type="password" id="signin-password" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="••••••••">
                         </div>
-                        <button type="submit" id="signin-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
+                        <button type="submit" id="signin-button" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
                             Sign In
                         </button>
                     </form>
                     <div class="mt-6 text-center text-slate-400">
-                        <p>Don't have an account? <button id="show-signup" class="font-semibold text-blue-400 hover:underline">Sign Up</button></p>
+                        <p>Don't have an account? <button id="show-signup" class="font-semibold text-cyan-400 hover:underline">Sign Up</button></p>
                     </div>
                 </div>
                 
@@ -67,27 +72,26 @@
                     <form id="sign-up-form">
                         <div class="mb-4">
                             <label for="signup-name" class="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
-                            <input type="text" id="signup-name" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe">
+                            <input type="text" id="signup-name" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="John Doe">
                         </div>
                         <div class="mb-4">
                             <label for="signup-email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                            <input type="email" id="signup-email" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com">
+                            <input type="email" id="signup-email" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="you@example.com">
                         </div>
                         <div class="mb-6">
                             <label for="signup-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
-                            <input type="password" id="signup-password" required minlength="6" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Minimum 6 characters">
+                            <input type="password" id="signup-password" required minlength="6" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Minimum 6 characters">
                         </div>
-                        <button type="submit" id="signup-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
+                        <button type="submit" id="signup-button" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
                             Sign Up
                         </button>
                     </form>
                     <div class="mt-6 text-center text-slate-400">
-                        <p>Already have an account? <button id="show-signin" class="font-semibold text-blue-400 hover:underline">Sign In</button></p>
+                        <p>Already have an account? <button id="show-signin" class="font-semibold text-cyan-400 hover:underline">Sign In</button></p>
                     </div>
                 </div>
 
                 <!-- Or Separator -->
-                 
                  <div class="my-6 flex items-center">
                     <div class="flex-grow border-t border-slate-600"></div>
                     <span class="flex-shrink mx-4 text-slate-400 text-sm">OR</span>
@@ -103,20 +107,14 @@
         </div>
     </div>
     
-    <!-- App View (after login) -->
-    <div id="app-view" class="hidden min-h-screen flex items-center justify-center">
-        <div class="text-center">
-            <h1 class="text-4xl font-bold mb-4">Welcome to FinBoard!</h1>
-            <p class="text-slate-300 mb-2">You are logged in as:</p>
-            <p id="user-email" class="font-mono bg-slate-800 p-2 rounded-md mb-6"></p>
-            <button id="logout-button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-md transition duration-300">
-                Log Out
-            </button>
-        </div>
+    <!-- App View (after login): This is now just a container for main.html -->
+    <div id="app-view" class="hidden">
+        <!-- The content from main.html will be injected here by login.js -->
     </div>
 
     <!-- Firebase SDK & Custom Script -->
-    <script type="module" src="/assets/js/login.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 
 </body>
 </html>
+
