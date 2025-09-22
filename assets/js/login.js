@@ -62,16 +62,12 @@ showSignInButton.addEventListener('click', () => {
 
 // --- Firebase Initialization and Auth Logic ---
 try {
-    const firebaseConfig = {
-        apiKey: "AIzaSyD_Ib8N0DMJXjjebiOcyfdoI5S_2Fo5dfk",
-        authDomain: "finb-e8d5c.firebaseapp.com",
-        projectId: "finb-e8d5c",
-        storageBucket: "finb-e8d5c.appspot.com",
-        messagingSenderId: "987390693893",
-        appId: "1:987390693893:web:97ea78258ab7f033df426c",
-        measurementId: "G-Z1GV4QM9B1"
-    };
-
+    // **FIX:** The firebaseConfig object is now loaded from the separate, untracked config.js file.
+    // We check if it exists before trying to initialize Firebase.
+    if (typeof firebaseConfig === 'undefined') {
+        throw new Error("Firebase configuration is missing. Make sure 'config.js' is loaded correctly.");
+    }
+    
     const appId = firebaseConfig.projectId || 'default-app-id';
     
     const app = initializeApp(firebaseConfig);
@@ -158,8 +154,6 @@ try {
                 
                 const dashboardHtmlText = await response.text();
                 
-                // **FIX:** Parse the fetched HTML and extract only the body's content.
-                // This prevents creating an invalid DOM structure (e.g., <body> inside a <div>).
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(dashboardHtmlText, 'text/html');
                 const dashboardContent = doc.body.innerHTML;
@@ -262,4 +256,3 @@ try {
     console.error("Initialization failed:", e);
     showNotification(e.message || "Could not connect to services. Please refresh.", true);
 }
-

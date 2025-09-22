@@ -35,7 +35,7 @@
             <!-- Branding/Info Panel -->
             <div class="w-full md:w-1/2 bg-slate-900 p-8 md:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
                 <div class="flex items-center gap-3 mb-4">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                     <h1 class="text-3xl font-bold">FinBoard</h1>
                 </div>
                 <p class="text-slate-300 text-lg mb-2">Welcome to your Financial Dashboard.</p>
@@ -57,7 +57,7 @@
                             <label for="signin-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
                             <input type="password" id="signin-password" required class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="••••••••">
                         </div>
-                        <button type="submit" id="signin-button" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
+                        <button type="submit" id="signin-button" class="btn-gradient w-full">
                             Sign In
                         </button>
                     </form>
@@ -82,7 +82,7 @@
                             <label for="signup-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
                             <input type="password" id="signup-password" required minlength="6" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Minimum 6 characters">
                         </div>
-                        <button type="submit" id="signup-button" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-300 flex items-center justify-center">
+                        <button type="submit" id="signup-button" class="btn-gradient w-full">
                             Sign Up
                         </button>
                     </form>
@@ -113,8 +113,9 @@
     </div>
 
     <!-- Firebase SDK & Custom Script -->
+    <!-- IMPORTANT: Load config.js BEFORE login.js -->
+    <script src="assets/js/config.js"></script>
     <script type="module" src="assets/js/login.js"></script>
 
 </body>
 </html>
-
